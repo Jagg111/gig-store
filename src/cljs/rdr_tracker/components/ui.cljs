@@ -1,0 +1,14 @@
+(ns rdr-tracker.components.ui
+  (:require [com.stuartsierra.component :as component]
+            [rdr-tracker.core :refer [render]]))
+
+(defrecord UIComponent []
+  component/Lifecycle
+  (start [component]
+    (render)
+    component)
+  (stop [component]
+    component))
+
+(defn new-ui-component []
+  (map->UIComponent {}))
