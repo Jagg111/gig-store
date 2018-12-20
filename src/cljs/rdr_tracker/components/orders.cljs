@@ -1,6 +1,18 @@
 (ns rdr-tracker.components.orders
   (:require [rdr-tracker.state :as state]))
 
+(defn total []
+  ;; Use a thread last macro to calculate the total
+  (->> @state/orders ;; Get the orders
+       ;; Now use a map to iterate across the orders and figure out the price per order
+       (map (fn [[id quant]] (* quant (get-in @state/gigs [id :price]))))
+       ;; Now use reduce to sum up the results in the map
+       (reduce +))
+  ;; Another variation that is more difficult to read.
+  ;;(reduce + (map (fn [[id quant]] (* quant (get-in @state/gigs [id :price]))) @state/orders))
+
+  )
+
 (defn orders []
   [:aside
    [:div.order
@@ -16,4 +28,10 @@
                         [:button.btn.btn--link.tooltip
                          {:data-tooltip "Remove"
                           :on-click (fn [] (swap! state/orders dissoc id))}
-                         [:i.icon.icon--cross]]]])]]])
+                         [:i.icon.icon--cross]]]])]
+    [:div.total
+     [:hr]
+     [:div.item
+      [:div.content "Total"]
+      [:div.action
+       [:div.price (total)]]]]]])
