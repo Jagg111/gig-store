@@ -10,7 +10,7 @@
        [:div.gig__body
         [:div.gig__title
          [:div.btn.btn--primary.float--right.tooltip
-          {:data-tooltip "Blah"
+          {:data-tooltip "Add to cart"
            ;; This is still confusing to me. I get that without a function wrapper
            ;; each gig gets set to 1 on render, but I don't get why the onclick
            ;; doesn't work or change the state of the atom.
