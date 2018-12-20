@@ -1,5 +1,6 @@
 (ns rdr-tracker.components.gigs
-  (:require [rdr-tracker.state :as state]))
+  (:require [rdr-tracker.state :as state]
+            [rdr-tracker.helpers :refer [format-price]]))
 
 (defn gigs []
   [:main
@@ -18,5 +19,5 @@
            ;; therefore setting it back to one?
            :on-click (fn [] (swap! state/orders update id inc))}
           [:i.icon.icon--plus]] title]
-        [:p.gig__price price]
+        [:p.gig__price (format-price price)]
         [:p.gig__desc desc]]])]])
