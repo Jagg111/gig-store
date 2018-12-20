@@ -16,7 +16,7 @@
            ;; doesn't work or change the state of the atom.
            ;; Maybe it's because react detects a state change and re-renders
            ;; therefore setting it back to one?
-           :on-click (fn [] (swap! state/orders update id inc)) }
+           :on-click (fn [] (swap! state/orders update id inc))}
           [:i.icon.icon--plus]] title]
         [:p.gig__price price]
         [:p.gig__desc desc]]])]])

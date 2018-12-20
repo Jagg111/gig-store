@@ -8,15 +8,13 @@
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
-
 (defn app []
   [:div.container
    [header]
    [gigs]
    [orders]
-   [footer]]
-  )
+   [footer]])
+
 
 (defn render []
   (reagent/render [app] (js/document.getElementById "app")))

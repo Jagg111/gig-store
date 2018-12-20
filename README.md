@@ -37,20 +37,21 @@ launches Figwheel directly from the REPL**
 
 ## Trying it out
 
-If all is well you now have a browser window saying 'Hello Chestnut',
+If all is well you now have a browser window displaying a cd store,
 and a REPL prompt that looks like `cljs.user=>`.
 
-Open `resources/public/css/style.css` and change some styling of the
-H1 element. Notice how it's updated instantly in the browser.
+Open `resources/public/css/style.css` and change either the font or font size.
+Notice how it's updated instantly in the browser.
 
-Open `src/cljs/rdr-tracker/core.cljs`, and change `dom/h1` to
-`dom/h2`. As soon as you save the file, your browser is updated.
+Open `src/cljs/rdr-tracker/components/orders.cljs`, and change `[:div.content "Total"]` to
+`[:div.content "Grand Total"]`. As soon as you save the file, your browser is updated.
 
 In the REPL, type
 
 ```
-(ns rdr-tracker.core)
-(swap! app-state assoc :text "Interactivity FTW")
+(ns rdr-tracker.state)
+(swap! orders assoc :gig-01 1)
+
 ```
 
 Notice again how the browser updates.
