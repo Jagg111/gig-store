@@ -1,5 +1,13 @@
 # rdr-tracker
 
+## Info
+This is a clojure project started via the Chestnut template.
+The original intent was to use this as a starting point for a personal project, but
+I ended up going through Jacek Schae's reagent tutorial to get a solid understanding
+of reagent & react first. If you switch to that branch you will see commits at each
+point that I finished a step of the tutorial.
+
+To run this you need to have Java & Leiningen installed.
 
 ## Development
 
